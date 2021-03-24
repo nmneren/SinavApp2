@@ -1,0 +1,41 @@
+﻿@model Content
+
+@{
+    ViewData["Title"] = "ContentEkle";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 style="text-align:center;">@TempData["name"] Ekle</h2>
+        <div class="row">
+            <div class="offset-2 col-md-8">
+
+
+
+                <form method="post" asp-controller="Desing" asp-action="ContentEkle">
+
+                    <input type="hidden" asp-for="Id" value="" />
+
+                    <input type="hidden" asp-for="MenuId" value="@TempData["id"]" />
+
+                    <div class="form-group">
+                        <label>Adı</label> <br />
+                        <input type="text" asp-for="Name" style="min-width:100%;" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fiyati</label> <br />
+                        <input type="text" asp-for="Price" style="min-width:100%;" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-danger" value="Kaydet" style="min-width:100%;" />
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@model ListVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Menuler</h1>
+        <div class="row" style="margin-top:20px;">
+
+            @foreach (var item in Model.Menu)
+            {
+                <div style="border:solid; min-width:100%;">
+
+
+                    <div class="row col-md-12 ">
+                        <div class="col-md-6">
+                            <h4>@item.Type </h4>
+                            <p>@item.Desdescription</p>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/Desing/ContentEkle/@item.Id" class="btn btn-light" style="min-width:100%;">Ekle</a>
+                        </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Adı</th>
+                                    <th scope="col">Fiyatı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var content in Model.ContentList)
+                                {
+                                    if (content.MenuId == item.Id)
+                                    {
+                                        <tr>
+                                            <td>@content.Name</td>
+                                            <td>@content.Price</td>
+                                            <td><a href="/Desing/Edit/@content.Id">Düzenle</a></td>
+                                            <td><a href="/Desing/Delete/@content.Id">Sil</a></td>
+                                        </tr>
+                                    }
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

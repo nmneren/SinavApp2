@@ -1,0 +1,35 @@
+﻿@model MenuContentVM
+
+@{
+    ViewData["Title"] = "Content";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>@Model.Menu.Type</h1>
+        <div class="row col-12" style="margin-top:20px;">
+
+            <table class="table table-borderless table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Adı</th>
+                        <th scope="col">Fiyatı</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.ContentList)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Price</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

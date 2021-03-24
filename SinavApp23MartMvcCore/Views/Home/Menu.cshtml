@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Menus>
+
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Menuler</h1>
+        <div class="row" style="margin-top:20px;">
+            <div class="list-group" style="min-width:50%;">
+
+                @foreach (var item in Model)
+                {
+
+                    <a href="/Home/Content/@item.Id" class="list-group-item list-group-item-action flex-column align-items-start ">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@item.Type</h5>
+                        </div>
+                        <p class="mb-1">@item.Desdescription</p>
+                    </a>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
